@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghost Productions | Desarrollo Web & Dedicatorias Digitales</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter & Orbitron -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            900: '#07090e',
+                            800: '#0b0f19',
+                            700: '#151c2e',
+                            600: '#1e293b'
+                        },
+                        neon: {
+                            cyan: '#00f2fe',
+                            blue: '#4facfe',
+                            purple: '#7f53ac',
+                            pink: '#ff2a85'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        tech: ['Orbitron', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glow-cyan {
+            box-shadow: 0 0 25px rgba(0, 242, 254, 0.25);
+        }
+        .glow-text {
+            text-shadow: 0 0 12px rgba(0, 242, 254, 0.6);
+        }
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card {
+            background: rgba(21, 28, 46, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 242, 254, 0.12);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            border-color: rgba(0, 242, 254, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(0, 242, 254, 0.3);
+        }
+        /* Gradient animations */
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 0.8; }
+        }
+        .animate-glow {
+            animation: pulseGlow 4s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-dark-900 text-slate-200 font-sans selection:bg-neon-cyan selection:text-dark-900 overflow-x-hidden min-h-screen">
+
+    <!-- Background Tech Effects -->
+    <div class="fixed inset-0 pointer-events-none z-0">
+        <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-neon-cyan/10 blur-[120px] animate-glow"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] rounded-full bg-neon-purple/15 blur-[150px] animate-glow" style="animation-delay: 2s;"></div>
+        <div class="absolute top-[40%] left-[50%] translate-x-[-50%] w-[800px] h-[400px] bg-neon-blue/5 blur-[160px] rounded-full"></div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 w-full z-50 glass-panel border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-neon-cyan to-neon-purple p-[1.5px] transition-transform group-hover:scale-105">
+                    <div class="w-full h-full bg-dark-900 rounded-[10.5px] flex items-center justify-center">
+                        <i class="fa-solid font-bold text-neon-cyan text-xl font-tech"><span class="text-neon-cyan">&lt;/&gt;</span></i>
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-tech text-xl font-black tracking-wider text-white flex items-center gap-1">
+                        GH<span class="text-neon-cyan">O</span>ST
+                    </span>
+                    <span class="text-[9px] font-tech tracking-[0.25em] text-slate-400 uppercase -mt-1">PRODUCTIONS</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="#inicio" class="text-slate-300 hover:text-neon-cyan transition-colors">Inicio</a>
+                <a href="#servicios" class="text-slate-300 hover:text-neon-cyan transition-colors">Servicios</a>
+                <a href="#portafolio" class="text-slate-300 hover:text-neon-cyan transition-colors">Portafolio</a>
+                <a href="#contacto" class="text-slate-300 hover:text-neon-cyan transition-colors">Contacto</a>
+            </nav>
+
+            <!-- CTA Button Header -->
+            <a href="https://wa.me/524431219599?text=Hola%20Ghost%20Productions,%20quiero%20información%20sobre%20sus%20servicios%20web" 
+               target="_blank" 
+               class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-neon-cyan to-neon-blue text-dark-900 font-semibold text-sm hover:shadow-[0_0_20px_rgba(0,242,254,0.4)] transition-all transform hover:-translate-y-0.5">
+                <i class="fa-brands fa-whatsapp text-lg"></i>
+                <span>Enviar mensaje</span>
+            </a>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobileMenuBtn" class="md:hidden text-slate-300 hover:text-white text-2xl focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobileMenu" class="hidden md:hidden glass-panel border-t border-slate-800 px-6 py-6 flex flex-col gap-4 text-center">
+            <a href="#inicio" class="mobile-link text-slate-200 hover:text-neon-cyan py-2 text-lg">Inicio</a>
+            <a href="#servicios" class="mobile-link text-slate-200 hover:text-neon-cyan py-2 text-lg">Servicios</a>
+            <a href="#portafolio" class="mobile-link text-slate-200 hover:text-neon-cyan py-2 text-lg">Portafolio</a>
+            <a href="#contacto" class="mobile-link text-slate-200 hover:text-neon-cyan py-2 text-lg">Contacto</a>
+            <a href="https://wa.me/524431219599?text=Hola%20Ghost%20Productions,%20quiero%20información%20sobre%20sus%20servicios%20web" 
+               target="_blank" 
+               class="mt-2 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-neon-cyan to-neon-blue text-dark-900 font-bold">
+                <i class="fa-brands fa-whatsapp text-xl"></i> Contactar por WhatsApp
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="relative pt-36 pb-20 md:pt-48 md:pb-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto z-10">
+        <div class="text-center max-w-3xl mx-auto">
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel border-neon-cyan/30 text-neon-cyan text-xs sm:text-sm font-medium mb-6">
+                <span class="w-2 h-2 rounded-full bg-neon-cyan animate-ping"></span>
+                <span>Desarrollo Web & Experiencias Interactivas</span>
+            </div>
+
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-tech font-extrabold text-white tracking-tight leading-tight mb-6">
+                Transformamos Ideas en <span class="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan via-neon-blue to-neon-purple glow-text">Código Único</span>
+            </h1>
+
+            <p class="text-slate-400 text-base sm:text-lg md:text-xl font-normal leading-relaxed mb-10 max-w-2xl mx-auto">
+                Diseñamos sitios web profesionales para impulsar tu negocio y creamos increíbles dedicatorias y regalos digitales interactivos para impresionar a tus personas especiales.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#portafolio" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-neon-cyan to-neon-blue text-dark-900 font-bold text-base hover:shadow-[0_0_25px_rgba(0,242,254,0.5)] transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-rocket"></i> Ver Proyectos
+                </a>
+                <a href="#contacto" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-panel hover:bg-slate-800/80 text-white font-semibold text-base border border-slate-700 hover:border-neon-cyan/50 transition-all flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-paper-plane text-neon-cyan"></i> Contactar Ahora
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="py-20 relative z-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-xs font-tech tracking-[0.3em] text-neon-cyan uppercase mb-2">Nuestras Especialidades</h2>
+            <p class="text-3xl sm:text-4xl font-tech font-bold text-white">¿Qué Creamos para Ti?</p>
+            <div class="w-16 h-1 bg-gradient-to-r from-neon-cyan to-neon-purple mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Service 1: Business Web -->
+            <div class="glass-card p-8 rounded-2xl relative overflow-hidden group">
+                <div class="w-14 h-14 rounded-xl bg-neon-cyan/10 border border-neon-cyan/30 flex items-center justify-center text-neon-cyan text-2xl mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-laptop-code"></i>
+                </div>
+                <h3 class="text-2xl font-tech font-bold text-white mb-4">Páginas Web para Negocios</h3>
+                <p class="text-slate-400 mb-6 leading-relaxed">
+                    Presencia digital profesional orientada a resultados. Diseños modernos, rápidos, responsive (visibles perfectamente en celular y PC) y optimizados para convertir visitantes en clientes.
+                </p>
+                <ul class="space-y-3 text-sm text-slate-300 mb-8">
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neon-cyan"></i> Landing Pages de Alta Conversión</li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neon-cyan"></i> Catálogos e Ecommerce Interactivo</li>
+                    <li class="flex items-center gap-3"><li class="flex items-center gap-3"><i class="fa-solid fa-check text-neon-cyan"></i> Integración directa a WhatsApp y Redes Sociales</li>
+                </ul>
+                <a href="https://wa.me/524431219599?text=Hola!%20Me%20interesa%20una%20página%20web%20para%20mi%20negocio." target="_blank" class="inline-flex items-center gap-2 text-neon-cyan font-semibold hover:underline">
+                    Cotizar Sitio Web <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- Service 2: Digital Dedications -->
+            <div class="glass-card p-8 rounded-2xl relative overflow-hidden group">
+                <div class="w-14 h-14 rounded-xl bg-neon-pink/10 border border-neon-pink/30 flex items-center justify-center text-neon-pink text-2xl mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+                <h3 class="text-2xl font-tech font-bold text-white mb-4">Dedicatorias & Detalles Web</h3>
+                <p class="text-slate-400 mb-6 leading-relaxed">
+                    Regala un detalle inolvidable a esa persona especial. Creamos experiencias interactivas con música, animación de flores, cartas secretas, contadores de días juntos y álbumes interactivos.
+                </p>
+                <ul class="space-y-3 text-sm text-slate-300 mb-8">
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neon-pink"></i> Flores Amarillas & Animaciones 🌻</li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neon-pink"></i> Páginas de Aniversario & Cumpleaños</li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-check text-neon-pink"></i> Mensajes y Galería de Recuerdos con Música</li>
+                </ul>
+                <a href="https://wa.me/524431219599?text=Hola!%20Me%20gustaría%20crear%20una%20dedicatoria%20web%20especial." target="_blank" class="inline-flex items-center gap-2 text-neon-pink font-semibold hover:underline">
+                    Crear mi Dedicatoria <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Live Demos Highlight Section -->
+    <section id="demos" class="py-20 relative z-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-xs font-tech tracking-[0.3em] text-neon-cyan uppercase mb-2">Prueba Experiencias Reales</h2>
+            <p class="text-3xl sm:text-4xl font-tech font-bold text-white">Explora Nuestras Demos en Vivo</p>
+            <p class="text-slate-400 mt-2 text-sm sm:text-base max-w-xl mx-auto">
+                Interactúa directamente con muestras en tiempo real para ver cómo lucirá tu proyecto.
+            </p>
+            <div class="w-16 h-1 bg-gradient-to-r from-neon-cyan to-neon-purple mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <!-- Highlighted Demo Grid -->
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+            <!-- Demo 1: Business Web -->
+            <div class="glass-panel p-8 rounded-3xl border-2 border-neon-cyan/40 relative overflow-hidden group hover:border-neon-cyan transition-all">
+                <div class="flex items-center justify-between mb-6">
+                    <span class="px-3 py-1 rounded-full bg-neon-cyan/20 text-neon-cyan border border-neon-cyan/40 font-mono text-xs font-bold uppercase tracking-wider">
+                        <i class="fa-solid fa-globe mr-1"></i> Demo Negocios
+                    </span>
+                    <span class="text-xs text-slate-400 font-tech">V. 2.4 - Kroa Coffee</span>
+                </div>
+                <h3 class="text-2xl font-tech font-bold text-white mb-3">Visita una de mis páginas demo para negocios</h3>
+                <p class="text-slate-300 text-sm mb-6 leading-relaxed">
+                    Prueba la velocidad, navegación responsive, catálogo e interacción rápida en el sitio de Kroa Coffee.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <a href="https://ghostmx-1.github.io/Kroa-coffe/" 
+                       target="_blank" 
+                       class="flex-1 py-3 px-5 rounded-xl bg-gradient-to-r from-neon-cyan to-neon-blue text-dark-900 font-bold text-sm hover:shadow-[0_0_20px_rgba(0,242,254,0.4)] transition-all text-center flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Probar Demo Negocio
+                    </a>
+                    <a href="https://wa.me/524431219599?text=Hola!%20Quiero%20personalizar%20la%20demo%20de%20negocio%20con%20mi%20información." 
+                       target="_blank" 
+                       class="py-3 px-4 rounded-xl glass-panel text-slate-300 hover:text-white border border-slate-700 text-sm font-medium text-center flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-pen-to-square"></i> Adaptar con mis datos
+                    </a>
+                </div>
+            </div>
+
+            <!-- Demo 2: Digital Dedication -->
+            <div class="glass-panel p-8 rounded-3xl border-2 border-neon-pink/40 relative overflow-hidden group hover:border-neon-pink transition-all">
+                <div class="flex items-center justify-between mb-6">
+                    <span class="px-3 py-1 rounded-full bg-neon-pink/20 text-neon-pink border border-neon-pink/40 font-mono text-xs font-bold uppercase tracking-wider">
+                        🌻 Demo Dedicatoria
+                    </span>
+                    <span class="text-xs text-slate-400 font-tech">Efectos Especiales</span>
+                </div>
+                <h3 class="text-2xl font-tech font-bold text-white mb-3">Visita una de mis dedicatorias demo</h3>
+                <p class="text-slate-300 text-sm mb-6 leading-relaxed">
+                    Vive la experiencia interactiva con flores amarillas animadas, música de fondo personalizada y sorpresas digitales.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <a href="https://resonant-souffle-bcad83.netlify.app" 
+                       target="_blank" 
+                       class="flex-1 py-3 px-5 rounded-xl bg-gradient-to-r from-neon-pink to-neon-purple text-white font-bold text-sm hover:shadow-[0_0_20px_rgba(255,42,133,0.4)] transition-all text-center flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-heart mr-1"></i> Probar Demo Dedicatoria
+                    </a>
+                    <a href="https://wa.me/524431219599?text=Hola!%20Tengo%20un%20mensaje/canción%20para%20crear%20una%20dedicatoria%20demo." 
+                       target="_blank" 
+                       class="py-3 px-4 rounded-xl glass-panel text-slate-300 hover:text-white border border-slate-700 text-sm font-medium text-center flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i> Personalizar mi carta
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Code / Document Submission Banner -->
+        <div class="glass-panel p-6 sm:p-8 rounded-2xl border border-dashed border-neon-cyan/40 text-center relative overflow-hidden bg-gradient-to-r from-dark-800 via-dark-700 to-dark-800">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+                <div class="text-left max-w-xl">
+                    <div class="flex items-center gap-2 text-neon-cyan font-tech text-sm font-bold mb-1">
+                        <i class="fa-solid fa-file-code text-lg"></i> ¿Tienes un código, idea o documento listo?
+                    </div>
+                    <p class="text-slate-300 text-sm">
+                        Si ya tienes un fragmento de código, una carta redactada o una imagen de referencia, compártemela y la integramos inmediatamente a tu diseño web.
+                    </p>
+                </div>
+                <a href="https://wa.me/524431219599?text=Hola%20Ghost%20Productions,%20tengo%20un%20código/documento%20que%20me%20gustaría%20que%20revisaras%20para%20mi%20página." 
+                   target="_blank" 
+                   class="shrink-0 px-6 py-3 rounded-xl bg-neon-cyan text-dark-900 font-bold text-sm hover:scale-105 transition-all flex items-center gap-2 shadow-[0_0_15px_rgba(0,242,254,0.3)]">
+                    <i class="fa-solid fa-upload"></i> Enviar mi Documento / Código
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portafolio" class="py-20 relative z-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-xs font-tech tracking-[0.3em] text-neon-cyan uppercase mb-2">Muestrario</h2>
+            <p class="text-3xl sm:text-4xl font-tech font-bold text-white">Explora Nuestros Proyectos</p>
+            <div class="w-16 h-1 bg-gradient-to-r from-neon-cyan to-neon-purple mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="flex justify-center gap-3 mb-12 flex-wrap">
+            <button id="filter-all" class="filter-btn px-6 py-2 rounded-full text-sm font-semibold bg-neon-cyan text-dark-900 transition-all">Todos</button>
+            <button id="filter-negocios" class="filter-btn px-6 py-2 rounded-full text-sm font-semibold glass-panel text-slate-300 hover:text-white border border-slate-700 transition-all">Páginas de Negocios</button>
+            <button id="filter-dedicatorias" class="filter-btn px-6 py-2 rounded-full text-sm font-semibold glass-panel text-slate-300 hover:text-white border border-slate-700 transition-all">Dedicatorias Especiales</button>
+        </div>
+
+        <!-- Portfolio Grid -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Project Card 1: Flores Amarillas -->
+            <div class="project-item dedicatorias glass-card rounded-2xl overflow-hidden flex flex-col">
+                <div class="relative overflow-hidden h-48 bg-slate-800">
+                    <img src="https://images.unsplash.com/photo-1591886960571-74d43a9d4166?auto=format&fit=crop&w=800&q=80" 
+                         alt="Flores Amarillas Interactivas" 
+                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent"></div>
+                    <span class="absolute top-4 right-4 bg-yellow-500/90 text-dark-900 font-bold text-xs px-3 py-1 rounded-full">
+                        🌻 Dedicatoria
+                    </span>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-2">Flores Amarillas Interactivas</h3>
+                        <p class="text-slate-400 text-sm mb-4">
+                            Página animada con ramos de flores amarillas interactivas, canción de fondo y sobre con dedicatoria romántica.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="text-[11px] px-2.5 py-1 rounded-md bg-slate-800 text-neon-cyan font-mono">HTML5</span>
+                            <span class="text-[11px] px-2.5 py-1 rounded-md bg-slate-800 text-neon-cyan font-mono">CSS Animations</span>
+                            <span class="text-[11px] px-2.5 py-1 rounded-md bg-slate-800 text-neon-cyan font-mono">Audio JS</span>
+                        </div>
+                        <a href="https://resonant-souffle-bcad83.netlify.app" target="_blank" class="w-full py-2.5 rounded-xl bg-slate-800 hover:bg-neon-cyan hover:text-dark-900 text-slate-200 text-sm font-semibold transition-all border border-slate-700 flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Ver Demo en Vivo
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Card 2: Kroa Coffee -->
+            <div class="project-item negocios glass-card rounded-2xl overflow-hidden flex flex-col">
+                <div class="relative overflow-hidden h-48 bg-slate-800">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" 
+                         alt="Sitio Web Comercial" 
+                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent"></div>
+                    <span class="absolute top-4 right-4 bg-neon-cyan/90 text-dark-900 font-bold text-xs px-3 py-1 rounded-full">
+                        💼 Negocio
+                    </span>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-2">Kroa Coffee - Sitio Web Comercial</h3>
+                        <p class="text-slate-400 text-sm mb-4">
+                            Diseño futurista y ultrarrápido con catálogo interactivo de productos, menú y presentación para cafetería.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="text-[11px] px-2.5 py-1 rounded-md bg-slate-800 text-neon-cyan font-mono">Tailwind CSS</span>
+                            <span class="text-[11px] px-2.5 py-1 rounded-md bg-slate-800 text-neon-cyan font-mono">JavaScript</span>
+                            <span class="text-[11px] px-2.5 py-1 rounded-md bg-slate-800 text-neon-cyan font-mono">SEO Ready</span>
+                        </div>
+                        <a href="https://ghostmx-1.github.io/Kroa-coffe/" target="_blank" class="w-full py-2.5 rounded-xl bg-slate-800 hover:bg-neon-cyan hover:text-dark-900 text-slate-200 text-sm font-semibold transition-all border border-slate-700 flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Ver Demo en Vivo
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Card 3: Carta de Aniversario -->
+            <div class="project-item dedicatorias glass-card rounded-2xl overflow-hidden flex flex-col">
+                <div class="relative overflow-hidden h-48 bg-slate-800">
+                    <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=800&q=80" 
+                         alt="Carta Interactiva Aniversario" 
+                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent"></div>
+                    <span class="absolute top-4 right-4 bg-neon-pink/90 text-dark-900 font-bold text-xs px-3 py-1 rounded-full">
+                        ❤️ Aniversario
+                    </span>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-2">Carta Interactiva de Aniversario</h3>
+                        <p class="text-slate-400 text-sm mb-4">
+                            Experiencia con contador de días en tiempo real, galería de fotos con recuerdos y carta digital con efectos de texto.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="text-[11px] px-2.5 py-1 rounded-md bg-slate-800 text-neon-pink font-mono">Contador JS</span>
+                            <span class="text-[11px] px-2.5 py-1 rounded-md bg-slate-800 text-neon-pink font-mono">Galería 3D</span>
+                        </div>
+                        <button onclick="openDemoModal('Carta de Aniversario', 'Sitio personalizado con línea de tiempo interactiva con las fotos de la pareja, música romántica personalizada y contador automático de años, meses y días juntos.')" class="w-full py-2.5 rounded-xl bg-slate-800 hover:bg-neon-cyan hover:text-dark-900 text-slate-200 text-sm font-semibold transition-all border border-slate-700 flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-eye"></i> Ver Demo / Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact & Direct Social Section -->
+    <section id="contacto" class="py-20 relative z-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="glass-panel p-8 sm:p-12 rounded-3xl border border-neon-cyan/20 max-w-4xl mx-auto">
+            <div class="text-center mb-10">
+                <h2 class="text-xs font-tech tracking-[0.3em] text-neon-cyan uppercase mb-2">¿Tienes una idea en mente?</h2>
+                <p class="text-3xl sm:text-4xl font-tech font-bold text-white">¡Hagámosla Realidad!</p>
+                <p class="text-slate-400 mt-2 text-sm sm:text-base">Contáctanos por tu medio preferido y te cotizamos al instante.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-3 gap-6">
+                <!-- Contact Item 1: Phone / WhatsApp -->
+                <a href="https://wa.me/524431219599?text=Hola!%20Vengo%20desde%20tu%20página%20web" 
+                   target="_blank" 
+                   class="glass-card p-6 rounded-2xl text-center group flex flex-col items-center">
+                    <div class="w-12 h-12 rounded-xl bg-green-500/10 text-green-400 border border-green-500/20 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+                    <span class="text-xs text-slate-400 uppercase tracking-wider mb-1">WhatsApp / Teléfono</span>
+                    <span class="text-white font-bold text-sm sm:text-base">443 121 9599</span>
+                </a>
+
+                <!-- Contact Item 2: Email -->
+                <a href="mailto:appfile72@gmail.com" 
+                   class="glass-card p-6 rounded-2xl text-center group flex flex-col items-center">
+                    <div class="w-12 h-12 rounded-xl bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/20 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-regular fa-envelope"></i>
+                    </div>
+                    <span class="text-xs text-slate-400 uppercase tracking-wider mb-1">Correo Electrónico</span>
+                    <span class="text-white font-bold text-xs sm:text-sm break-all">appfile72@gmail.com</span>
+                </a>
+
+                <!-- Contact Item 3: Instagram -->
+                <a href="https://instagram.com/ghst_produccion" 
+                   target="_blank" 
+                   class="glass-card p-6 rounded-2xl text-center group flex flex-col items-center">
+                    <div class="w-12 h-12 rounded-xl bg-neon-pink/10 text-neon-pink border border-neon-pink/20 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <span class="text-xs text-slate-400 uppercase tracking-wider mb-1">Instagram</span>
+                    <span class="text-white font-bold text-sm sm:text-base">@ghst_produccion</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800/80 py-8 relative z-10 text-center text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+                <span class="font-tech font-bold text-slate-300">GHOST PRODUCTIONS</span>
+                <span>&copy; <span id="year"></span>. Todos los derechos reservados.</span>
+            </div>
+            <p>Diseño Web Profesional & Dedicatorias Interactivas</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/524431219599?text=Hola,%20me%20interesa%20un%20proyecto%20con%20Ghost%20Productions" 
+       target="_blank" 
+       title="Chatear en WhatsApp"
+       class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-green-500 text-white flex items-center justify-center text-3xl shadow-[0_0_20px_rgba(34,197,94,0.5)] hover:scale-110 transition-all duration-300">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Demo Project Modal -->
+    <div id="demoModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-dark-900/80 backdrop-blur-md">
+        <div class="glass-panel p-6 sm:p-8 rounded-2xl max-w-lg w-full border border-neon-cyan/30 relative animate-fadeIn">
+            <button onclick="closeDemoModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 id="modalTitle" class="text-2xl font-tech font-bold text-white mb-3"></h3>
+            <p id="modalDesc" class="text-slate-300 text-sm leading-relaxed mb-6"></p>
+            <div class="flex gap-4">
+                <a href="https://wa.me/524431219599?text=Hola!%20Quiero%20una%20página%20similar%20a%20este%20proyecto" 
+                   target="_blank" 
+                   class="flex-1 py-3 bg-gradient-to-r from-neon-cyan to-neon-blue text-dark-900 font-bold rounded-xl text-center text-sm">
+                    Pedir uno igual
+                </a>
+                <button onclick="closeDemoModal()" class="px-5 py-3 glass-panel text-slate-300 hover:text-white rounded-xl text-sm font-semibold">
+                    Cerrar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripting Logic -->
+    <script>
+        // Set dynamic year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Portfolio Filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projects = document.querySelectorAll('.project-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button styles
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-neon-cyan', 'text-dark-900');
+                    b.classList.add('glass-panel', 'text-slate-300');
+                });
+                btn.classList.remove('glass-panel', 'text-slate-300');
+                btn.classList.add('bg-neon-cyan', 'text-dark-900');
+
+                const filter = btn.id.replace('filter-', '');
+
+                projects.forEach(project => {
+                    if (filter === 'all') {
+                        project.style.display = 'flex';
+                    } else if (project.classList.contains(filter)) {
+                        project.style.display = 'flex';
+                    } else {
+                        project.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Modal Logic
+        function openDemoModal(title, description) {
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalDesc').textContent = description;
+            document.getElementById('demoModal').classList.remove('hidden');
+        }
+
+        function closeDemoModal() {
+            document.getElementById('demoModal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
